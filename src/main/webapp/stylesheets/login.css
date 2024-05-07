@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1efec;
+    background-size: cover;
+}
+
+.container {
+    background-color: #F7F6F2;
+    margin: 100px auto;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(75, 69, 69);
+}
+
+form {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    margin-left: -2350px;
+    margin-top: 20px;
+}
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    margin-left: -2350px;
+}
+
+input { 
+    padding: 10px;  /* Input area layout of email & password */  
+    width: 93%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;  /* button layout of submit */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #3e8e41; /* Submit button hover effect */
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: blue;
+}
+.btn {
+    padding: 9px 18px; /* Adjusted padding for all sides */
+    border-radius: 15; /* Making the button rectangular */
+}
+footer{
+    padding: 100px 100px 100px 100px;
+    background: #93840f;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+}
+li {
+    margin-top: 10px;
+}
+footer, span, a{
+    color: #4c5444;
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}

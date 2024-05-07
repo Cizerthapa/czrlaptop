@@ -1,0 +1,67 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+.header {
+    background-color: #B0B9AB;
+    color: #fff;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+/* Navigation styles */
+.main-nav {
+    list-style-type: none;
+    margin: 0 auto; /* Center the navigation horizontally */
+    padding: 0;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center the items horizontally */
+}
+
+.main-nav li {
+    margin-right: 20px; /* Add margin between list items */
+}
+
+.main-nav li:last-child {
+    margin-right: 0; /* Remove margin from the last list item */
+}
+
+.main-nav li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.main-nav li a:hover {
+    color: #ffcc00;
+}
+
+/* Form button styles */
+form input[type="submit"] {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ffdb4d;
+}
+
+/* Image styles */
+/* Image styles */
+.logo {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align items vertically */
+}
+
+
