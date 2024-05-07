@@ -1,7 +1,6 @@
 package controller.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.database.DatabaseController;
-import model.Laptop;
 
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
@@ -29,13 +27,15 @@ public class DeleteServlet extends HttpServlet {
         if (deleteString != null && !deleteString.isEmpty()) {
             try {
                 int queryResult = dbController.deleteLaptop(deleteString);
+                System.out.println(queryResult);
                 if (queryResult > 0) {
 //                    ArrayList<Laptop> laptops = dbController.getAllLaptops();
 //                    request.setAttribute("laptops", laptops);
-                    response.sendRedirect("/pages/addproduct.jsp");
+                    response.sendRedirect(request.getContextPath()+"/pages/addproduct.jsp");
                 } else {
                     // Provide feedback to the user if deletion failed
                     System.out.println("Failed to delete laptop");
+                    request.getRequestDispatcher(request.getContextPath()+"/pages/addproduct.jsp");
                     // You might want to provide feedback to the user here
                 }
             } catch (Exception e) {

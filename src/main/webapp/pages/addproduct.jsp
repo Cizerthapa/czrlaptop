@@ -121,7 +121,7 @@ String successFulParam = request.getParameter(StringUtils.SUCCESS);
 									<td>${laptop.graphics}</td>
 									<td>${laptop.RAM}</td>
 									<td>
-										<form action="../DeleteServlet" method="post">
+										<form action="${pageContext.request.contextPath}/DeleteServlet" method="post">
 											<input type="hidden" id="id_delete" name="id_delete"
 												value="${laptop.laptopName}">
 											<button class="delete-btn" type="submit">Delete</button>
@@ -145,7 +145,6 @@ String successFulParam = request.getParameter(StringUtils.SUCCESS);
 											<button type="submit" class="edit-btn">Edit</button>
 										</form>
 									</td>
-
 								</tr>
 							</c:forEach>
 						</c:if>
