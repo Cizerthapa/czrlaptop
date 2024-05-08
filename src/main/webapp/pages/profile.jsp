@@ -1,91 +1,112 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page import="model.User"%>
+<%@ page import="controller.database.DatabaseController"%>
+<%@ page import="util.StringUtils"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%
+// Check if the user is logged in
+// Assuming you have a session attribute named "loggedInUser" that stores the logged-in user's username
+String loggedInUsername = (String) session.getAttribute(StringUtils.USERNAME);
+if (loggedInUsername == null || loggedInUsername.isEmpty()) {
+	// Redirect to login page if not logged in
+	response.sendRedirect(request.getContextPath() + "/pages/login.jsp");
+	return; // Stop further execution
+}
+
+// Initialize the database controller
+DatabaseController dbController = new DatabaseController();
+
+// Retrieve user profile information from the database based on the logged-in username
+User userP = dbController.getUserProfile(loggedInUsername);
+
+// Check if user profile is null
+if (userP == null) {
+	// Handle case where user profile is not found
+	// For example, display an error message
+	out.println("User profile not found");
+	return; // Stop further execution
+}
+%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Profile</title>
-<link rel="stylesheet" href="../css/profile.css">
-<style>
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .profile-card {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .profile-details {
-        flex: 1;
-    }
-
-    .btn-primary { 
-        color: #dfe9f5;
-        padding: 10px 20px;
-        border-radius: 8px;
-        background-color: #007bff;
-        border: none;
-        cursor: pointer;
-        margin-right: 10px;
-    }
-
-    .btn-primary:last-child {
-        margin-right: 0;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
-    input[type="password"], input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-    input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-</style>
+<title>Profile Page</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/stylesheets/profile.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="profile-card">
-            <div class="profile-details">
-                <h2>User Name: czradmin</h2>
-                <p>Email: cizerthapa@gmail.com</p>
-                <p>Location: Lalitpur, Nepal</p>
-                <p>Joined: January 1, 1951</p>
-            </div>
-        </div>
-        <div class="divide">
-            <a href="../html/profileupdate.html" target="_self">
-                <button
-                style="
-                background-color: #007bff;
-                color: rgb(240, 243, 246);
-                border-radius: 8px;
-                height: 50px;
-                width: 200px;
-                font-size: 18px;
-                font-family: Arial, sans-serif;"
-                >
-                Update Now
-                </button>
-            </a>
-            </a>
-        </div>
-    </div>
+
+
+	<div class="container">
+		<div class="box">
+			<h1>Profile</h1>
+			<div class="image">
+				<img
+					src="${pageContext.request.contextPath}/resources/user/account.png"
+					alt="Image">
+			</div>
+			<div class="user-details">
+				<p>
+					User name:
+					<%=userP.getUsername()%></p>
+				<p>
+					First Name:
+					<%=userP.getfirstName()%></p>
+				<p>
+					Email:
+					<%=userP.getEmail()%></p>
+				<p>
+					Phone Number:
+					<%=userP.getPhoneNumber()%></p>
+				<p>
+					DOB:
+					<%=userP.getDob()%></p>
+				<p>
+					Address:
+					<%=userP.getLocation()%></p>
+			</div>
+			<form action="${pageContext.request.contextPath}/EditProfileServlet"
+				method="post">
+				<input type="hidden" id="userName" name="userName"
+					value="<%=userP.getUsername()%>"> <input type="hidden"
+					id="userFirstName" name="userFullName"
+					value="<%=userP.getfirstName()%>"> <input type="hidden"
+					id="userEmail" name="userEmail" value="<%=userP.getEmail()%>">
+				<input type="hidden" id="contactNumber" name="contactNumber"
+					value="<%=userP.getPhoneNumber()%>"> <input type="hidden"
+					id="address" name="address" value="<%=userP.getLocation()%>">
+				<div class="updateButton">
+					<button type="submit">Update</button>
+				</div>
+			</form>
+			<form id="resetPasswordForm"
+				action="${pageContext.request.contextPath}/ChnagedPassGive"
+				method="post">
+				<button type="submit" class="home-button">Reset Password</button>
+			</form>
+		</div>
+	</div>
+	<a href="${pageContext.request.contextPath}/pages/home.jsp">
+		<button class="home-button">Go Back</button>
+	</a>
+
 </body>
+<script>
+	// Add an event listener to the form submission
+	document
+			.getElementById('resetPasswordForm')
+			.addEventListener(
+					'submit',
+					function(event) {
+						// Prevent the default form submission behavior
+						event.preventDefault();
+
+						// Redirect the user to changepassword.jsp
+						window.location.href = "${pageContext.request.contextPath}/pages/changepassword.jsp";
+					});
+</script>
 </html>

@@ -1,4 +1,6 @@
 <%@page import="util.StringUtils"%>
+<%@page import="model.User"%>
+<%@ page import="controller.database.DatabaseController" %>
 <%@ page language="java"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,6 +9,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Password Change</title>
+<%
+    // Check if the user is logged in
+    // Assuming you have a session attribute named "loggedInUser" that stores the logged-in user's username
+    String loggedInUsername = (String) session.getAttribute(StringUtils.USERNAME);
+    if (loggedInUsername == null || loggedInUsername.isEmpty()) {
+        // Redirect to login page if not logged in
+        response.sendRedirect(request.getContextPath() + "/pages/login.jsp");
+        return; // Stop further execution
+    }
+
+    // Initialize the database controller
+    DatabaseController dbController = new DatabaseController();
+    
+    // Retrieve user profile information from the database based on the logged-in username
+    User userP = dbController.getUserProfile(loggedInUsername);
+
+    // Check if user profile is null
+    if (userP == null) {
+        // Handle case where user profile is not found
+        // For example, display an error message
+        out.println("User profile not found");
+        return; // Stop further execution
+    }
+%>
+
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -75,6 +102,13 @@ input[type="submit"]:hover {
 </style>
 </head>
 <body>
+<form action="${pageContext.request.contextPath}/EditProfileServlet" method="post">
+                <input type="hidden" id="userName" name="userName" value="<%= userP.getUsername() %>">
+                <input type="hidden" id="userFirstName" name="userFullName" value="<%= userP.getfirstName() %>">
+                <input type="hidden" id="userEmail" name="userEmail" value="<%= userP.getEmail() %>">
+                <input type="hidden" id="contactNumber" name="contactNumber" value="<%= userP.getPhoneNumber() %>">
+                <input type="hidden" id="address" name="address" value="<%= userP.getLocation() %>">
+            </form>
 	<div class="container">
 		<ul class="main-nav">
 			<li><a
@@ -86,19 +120,24 @@ input[type="submit"]:hover {
 	</div>
 	<div class="container">
 		<h2>Change Password</h2>
-		<form action="../UpdateServlet" method="post">
+		<form action="../ChangePasswordServlet" method="post">
+		
+		<input type="hidden" id="userEmail" name="userEmail" value="<%= userP.getEmail() %>">
+                <input type="hidden" id="contactNumber" name="contactNumber" value="<%= userP.getPhoneNumber() %>">
+		
 			<input type="password" name="current_password"
 				placeholder="Current Password" required> <input
 				type="password" name="new_password" placeholder="New Password"
 				required> <input type="password" name="confirm_password"
 				placeholder="Confirm New Password" required> <input
 				type="submit" value="Change Password">
-		</form>
+		
 		<a href="../html/profile.html" target="_self">
 			<button
 				style="background-color: #f93838; color: rgb(240, 243, 246); border-radius: 8px; height: 30px; width: 200px; font-size: 18px; font-family: Arial, sans-serif; margin-top: 20px; margin-left: 95px;">
 				Back</button>
 		</a>
+		</form>
 	</div>
 </body>
 </html>

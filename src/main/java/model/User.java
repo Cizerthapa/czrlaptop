@@ -20,6 +20,10 @@ public class User {
 	private String imageUrlFromPart;
 	private String role;
 	private Part imagePart;
+	private int status;
+	
+	public User(){}
+	
 	public User(String firstName, String lastname, String location, LocalDate dob, String gender,
 			String email, String phoneNumber, String username, String password, String role, Part imagePart) {
 		super();
@@ -35,8 +39,22 @@ public class User {
 		this.role = role;
 		this.imagePart = imagePart;
 		this.imageUrlFromPart = getImageUrl(imagePart);
-		
 	}
+	
+	public User(String username, int status, String role) {
+		this.username = username;
+        this.status = status;
+        this.role = role;
+    }
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public Part getImagePart() {
 		return imagePart;
 	}

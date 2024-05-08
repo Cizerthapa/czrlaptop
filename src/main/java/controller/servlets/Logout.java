@@ -1,6 +1,7 @@
 package controller.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import util.CookieUtil;
 import util.StringUtils;
 
 @WebServlet(asyncSupported = true, urlPatterns = StringUtils.SERVLET_URL_LOGOUT)
@@ -20,6 +22,7 @@ public class Logout extends HttpServlet {
         if (session != null) {
         	System.out.println("Terminated session");
             session.invalidate();
+            CookieUtil.deleteAllCookies(request, response);
         }
         response.sendRedirect(request.getContextPath()+"/pages/welcome.jsp");
     }

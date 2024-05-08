@@ -226,14 +226,14 @@ public class RegisterServelet extends HttpServlet {
 			return;
 		}
 
-		if (dbController.isUsernameExists(user_name)) {
+		if (dbController.isuserNameExists(user_name)) {
 			String errorMessage = "Username already exists. Please choose a different username.";
 			request.setAttribute(StringUtils.MESSAGE_ERROR, errorMessage);
 			request.getRequestDispatcher(StringUtils.PAGE_URL_REGISTER).forward(request, response);
 			return;
 		}
 		// Check if email already exists
-		if (dbController.isEmailExists(email)) {
+		if (dbController.isExistsEmail(email)) {
 			String errorMessage = "Email already exists. Please use a different email address.";
 			request.setAttribute(StringUtils.MESSAGE_ERROR, errorMessage);
 			request.getRequestDispatcher(StringUtils.PAGE_URL_REGISTER).forward(request, response);
@@ -252,14 +252,14 @@ public class RegisterServelet extends HttpServlet {
 				&& checkDate(dob) == 0) {
 			System.out.println("checking process");
 			// request.setAttribute("error-message", fileName);
-			if (dbController.checkUserNameFromDb(user_name) == 1 && dbController.checkEmailFromDb(email) == 1
+			if (dbController.checkuserNameFromDb(user_name) == 1 && dbController.checkEmailFromDb(email) == 1
 					&& dbController.checkPhoneFromDb(phone_number) == 1) {
 				response.sendRedirect(request.getContextPath() + StringUtils.PAGE_URL_REGISTER);
 				System.out.println("Already Enrolled");
 			} else {
 				System.out.println("Here in password check");
 				if (password.equalsIgnoreCase(repassword)) {
-					int result = dbController.addUser(model);
+					int result = dbController.userAdd(model);
 					System.out.println(result);
 					response.sendRedirect(request.getContextPath()+"/pages/login.jsp");				}
 			}

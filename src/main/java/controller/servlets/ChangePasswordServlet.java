@@ -26,7 +26,12 @@ public class ChangePasswordServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+		
 		String emailAndPassword = request.getParameter("emailandpassword");
+		String email = request.getParameter("userEmail");
+		
+		System.out.println(email);
+		
 		
 		String password = request.getParameter("new_password");
 		String rePassword = request.getParameter("confirm_password");
@@ -36,15 +41,14 @@ public class ChangePasswordServlet extends HttpServlet {
 		System.out.println("Confirm Password: " + rePassword);
 		
 		if(password.equalsIgnoreCase(rePassword)) {
-			int rssd = dbController.updatePasswordFromEmail(emailAndPassword, password);
+			int rssd = dbController.updatePasswordFromEmail(email, password);
 			System.out.println("Password change from email: "+ rssd);
 			if(rssd == 0 || rssd < 0){
-				int newrssd  = dbController.updatePasswordFromPhone(emailAndPassword, password);
+				int newrssd  = dbController.updatePasswordFromPhone(email, password);
 				System.out.println("Password change from phone: "+ newrssd);
 			} else {
 				System.out.println("");
-			}
-			
+			}			
 		}
 	}
 

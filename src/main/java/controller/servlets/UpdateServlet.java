@@ -71,7 +71,7 @@ public class UpdateServlet extends HttpServlet {
 		if (!fileName.isEmpty() && fileName != null)
 		    user_image.write(savePath + fileName);
 
-		int result = dbController.addProduct(model);
+		int result = dbController.addLaptop(model);
 
 		if (result > 0) {
 		    // Successful addition, redirect to admin page or display success message

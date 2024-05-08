@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+header {
+
+  color: #fff;
+  background-color: #c0c0c020;
+  padding: 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+h1 {
+  margin: 0; /* Remove default margin */
+}
+
+.Content_Wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.laptopgallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.laptopItem {
+  width: calc(30% - 20px); /* Adjusted width considering margin */
+  margin-bottom: 20px;
+  height: 250px; /* Set a fixed height for consistency */
+  overflow: hidden; /* Ensure images don't overflow */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.laptopItem img {
+  width: 100%; /* Ensure images fill the container */
+  height: 100%; /* Ensure images fill the container */
+  object-fit: cover; /* Maintain aspect ratio and cover container */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
