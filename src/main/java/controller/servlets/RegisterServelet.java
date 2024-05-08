@@ -246,6 +246,12 @@ public class RegisterServelet extends HttpServlet {
 			request.getRequestDispatcher(StringUtils.PAGE_URL_REGISTER).forward(request, response);
 			return;
 		}
+		if (checkDate(dob) == -1) {
+			String errorMessage = "User Should be Older than 18 YEARS.";
+			request.setAttribute(StringUtils.MESSAGE_ERROR, errorMessage);
+			request.getRequestDispatcher(StringUtils.PAGE_URL_REGISTER).forward(request, response);
+			return;
+		}
 
 		if (checkUsername(user_name) == 0 && checkString(first_name) == 0 && checkString(last_name) == 0
 				&& checkPhone(phone_number) == 0 && genderCheck(gender) == 0 && isValidPassword(password)
@@ -261,7 +267,10 @@ public class RegisterServelet extends HttpServlet {
 				if (password.equalsIgnoreCase(repassword)) {
 					int result = dbController.userAdd(model);
 					System.out.println(result);
-					response.sendRedirect(request.getContextPath()+"/pages/login.jsp");				}
+					response.sendRedirect(request.getContextPath() + "/pages/login.jsp");
+				} else {
+					response.sendRedirect(request.getContextPath() + "/pages/error.html");
+				}
 			}
 		}
 	}

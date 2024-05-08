@@ -73,15 +73,7 @@ String contextPath = request.getContextPath();
 						type="tel" id="phoneNumber" name="phoneNumber"
 						placeholder="+9779800000000" required class="form-input">
 				</div>
-				<div class="form-column">
-					<label for="subject" class="form-label">Subject:</label> <select
-						id="subject" name="subject" required class="form-select">
-						<option value="computing">Computing</option>
-						<option value="multimedia">Multi-media</option>
-						<option value="networking">Networking</option>
-						<option value="MAD">Mobile Application Development</option>
-					</select>
-				</div>
+				
 			</div>
 			<div class="form-row">
 				<div class="form-column">

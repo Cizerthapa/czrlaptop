@@ -23,10 +23,12 @@ String successFulParam = request.getParameter(StringUtils.SUCCESS);
 	href="${pageContext.request.contextPath}/stylesheets/addproduct.css">
 </head>
 <body>
+<button onclick="window.location.href='${pageContext.request.contextPath}/pages/dash.jsp'" style="margin-top: 20px; position: absolute;">Go Back</button>
+
 	<div class="laptop-container">
-		<h1>Laptop Management</h1>
+		<h1 style="text-align: center;">Laptop Management</h1>
 		<div class="laptop-form-container">
-			<h2>Add a New Laptop</h2>
+			<h2 style="text-align: center;">Add a New Laptop</h2>
 			<form action="../UpdateServlet" method="post"
 				enctype="multipart/form-data">
 				<label for="laptopName">Laptop Name:</label> <input type="text"

@@ -11,8 +11,6 @@ body {
 }
 
 .laptop-container {
-   max-width: 800px;
-   margin: 50px auto;
    padding: 20px;
    background-color: #F9FBFB;
    border-radius: 8px;
@@ -54,7 +52,7 @@ h1, h2 {
 }
 
 .laptop-form-container button[type="submit"] {
-   background-color: #3A4A4D;
+   background-color: #33b249;
    color: white;
    border: none;
    border-radius: 5px;
@@ -64,7 +62,7 @@ h1, h2 {
 }
 
 .laptop-form-container button[type="submit"]:hover {
-   background-color: #7f9fa4;
+   background-color: #5cdb5c;
 }
 
 .laptop-table-container {
@@ -105,12 +103,12 @@ h1, h2 {
 }
 
 .laptop-table td .edit-btn {
-   background-color: #4CAF50; /* Green */
+   background-color: #008000; /* Green */
    color: white;
 }
 
 .laptop-table td .delete-btn {
-   background-color: #f44336; /* Red */
+   background-color: #FF0000; /* Red */
    color: white;
 }
 

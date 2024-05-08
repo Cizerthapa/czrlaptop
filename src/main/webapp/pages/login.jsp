@@ -61,7 +61,7 @@ String successFulParam = request.getParameter(StringUtils.SUCCESS);
             <input type="password" id="passwordType" name="password" placeholder="Enter password">
             <p id="pwdemo" style="color: red;"></p>
             <button class="btn" type="submit">Submit</button>
-            <p>Don't have an account? <a href="../html/signup.html">Sign up</a></p>
+            <p>Don't have an account? <a href="../pages/registernew.jsp">Sign up</a></p>
         </form>
         <%
 		if (messageError != null) {

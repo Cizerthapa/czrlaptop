@@ -46,7 +46,7 @@ if (userP == null) {
 			<h1>Profile</h1>
 			<div class="image">
 				<img
-					src="${pageContext.request.contextPath}/resources/user/account.png"
+					src="${pageContext.request.contextPath}/resources/user/person.png"
 					alt="Image">
 			</div>
 			<div class="user-details">

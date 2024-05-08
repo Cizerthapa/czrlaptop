@@ -88,13 +88,16 @@ nav {
 }
 
 .product-container {
-    display: flex;
-    flex-wrap: wrap;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #F9FBFB;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 .product-card {
-    width: calc(33.11% - 19px); /* 33.11% width minus 19px for margin */
-    background-color: #fff;
+    width: calc(80.11% - 19px); 
+    background-color: #ff0011;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

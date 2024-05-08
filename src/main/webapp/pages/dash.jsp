@@ -128,7 +128,7 @@
         <p>Country of Origin: PQR Country of Origin</p>
         </div>
     </div>
-    <button style="background-color: #4CAF50; /* Green background */
+    <button onclick="window.location.href='${pageContext.request.contextPath}/addproduct.jsp'" style="background-color: #4CAF50; /* Green background */
                border: none; /* Remove border */
                color: white; /* White text */
                padding: 15px 32px; /* Padding */
