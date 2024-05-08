@@ -22,15 +22,9 @@ public class UpdateLaptopServlet extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Retrieve updated values from the form
-		// Retrieve updated values from the form
+
 		String laptop_name = request.getParameter("laptop_name");
 		String price = request.getParameter("price");
 		String stockLevel = request.getParameter("stockLevel");

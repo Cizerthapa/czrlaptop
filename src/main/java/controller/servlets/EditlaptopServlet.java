@@ -52,7 +52,7 @@ public class EditlaptopServlet extends HttpServlet {
         request.setAttribute("RAM", RAM);
 
         // Forward to the JSP for editing
-        RequestDispatcher dispatcher = request.getRequestDispatcher(request.getContextPath()+"/pages/editlaptop.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/editlaptop.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -17,7 +17,7 @@
             </div>
             <div class="update_form_group">
                 <label for="price">Laptop Price:</label>
-                <input type="number" id="price" name="price" value="${price}" required>
+                <input type="text" id="price" name="price" value="${price}" required>
             </div>
             <div class="update_form_group">
                 <label for="stockLevel">stockLevel:</label>

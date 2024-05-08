@@ -32,7 +32,6 @@ public class ChangePasswordServlet extends HttpServlet {
 		
 		System.out.println(email);
 		
-		
 		String password = request.getParameter("new_password");
 		String rePassword = request.getParameter("confirm_password");
 		
@@ -46,10 +45,10 @@ public class ChangePasswordServlet extends HttpServlet {
 			if(rssd == 0 || rssd < 0){
 				int newrssd  = dbController.updatePasswordFromPhone(email, password);
 				System.out.println("Password change from phone: "+ newrssd);
+				response.sendRedirect("/pages/editlaptop.jsp");
 			} else {
 				System.out.println("");
 			}			
 		}
 	}
-
 }
