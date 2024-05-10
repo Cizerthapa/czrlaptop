@@ -67,7 +67,7 @@
             </sql:query>
             <c:forEach var="laptop" items="${laptops.rows}">
                 <div class="product">
-                    <img src="${pageContext.request.contextPath}/resources/user/${laptop.image}"
+                    <img src="${pageContext.request.contextPath}/resources/images/${laptop.image}"
                         alt="${laptop.laptopName}">
                     <h3>${laptop.laptopName}</h3>
                     <p>Price: ${laptop.unitPrice}</p>

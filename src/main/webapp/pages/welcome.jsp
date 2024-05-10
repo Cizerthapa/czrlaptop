@@ -49,7 +49,7 @@
 	<div class="welcome-container">
 		<h1>
 			Hello
-			<%= userSession %>. Welcome to our page!
+			<%= userSession %>.
 		</h1>
 		<a href="${pageContext.request.contextPath}/pages/home.jsp">
 			<button class="home-button">Continue to Home Page</button>
@@ -61,7 +61,7 @@
 	</div>
 	<% } else {%>
 	<div class="welcome-container">
-		<h1>
+		<h1 style="color: grey">
 			Please Login/ register
 		</h1>
 		<a href="${pageContext.request.contextPath}/pages/home.jsp">
@@ -71,8 +71,8 @@
 
 	<section class="hero">
 		<div class="container">
-			<h2>Welcome to CZR Laptops</h2>
-			<p>Explore our wide range of laptops at unbeatable prices</p>
+			<h2 style="color: grey">Welcome to CZR Laptops</h2>
+			<p style="color: grey">Explore our wide range of laptops at unbeatable prices</p>
 			<a href="../pages/home.jsp" class="btn">Shop Now</a>
 		</div>
 	</section>

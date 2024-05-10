@@ -40,10 +40,10 @@ public class ChangePasswordServlet extends HttpServlet {
 		System.out.println("Confirm Password: " + rePassword);
 		
 		if(password.equalsIgnoreCase(rePassword)) {
-			int rssd = dbController.updatePasswordFromEmail(email, password);
+			int rssd = dbController.updatePasswordFromEmail(emailAndPassword, password);
 			System.out.println("Password change from email: "+ rssd);
 			if(rssd == 0 || rssd < 0){
-				int newrssd  = dbController.updatePasswordFromPhone(email, password);
+				int newrssd  = dbController.updatePasswordFromPhone(emailAndPassword, password);
 				System.out.println("Password change from phone: "+ newrssd);
 				response.sendRedirect("/pages/editlaptop.jsp");
 			} else {

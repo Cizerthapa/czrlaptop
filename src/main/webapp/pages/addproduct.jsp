@@ -113,7 +113,7 @@ String successFulParam = request.getParameter(StringUtils.SUCCESS);
 							<c:forEach var="laptop" items="${laptops.rows}">
 								<tr>
 									<td><img
-										src="${pageContext.request.contextPath}/resources/user/${laptop.image}"
+										src="${pageContext.request.contextPath}/resources/images/${laptop.image}"
 										height="100" alt="laptop Image"></td>
 									<td>${laptop.laptopName}</td>
 									<td>${laptop.unitPrice}</td>

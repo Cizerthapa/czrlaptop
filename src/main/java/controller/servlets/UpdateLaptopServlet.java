@@ -41,11 +41,11 @@ public class UpdateLaptopServlet extends HttpServlet {
 
 		// Redirect back to the original JSP page with success or error message
 		if (result == 1) {
-			response.sendRedirect(request.getContextPath() + "/pages/adminProduct.jsp?success=true");
+			response.sendRedirect(request.getContextPath() + "/pages/dash.jsp?success=true");
 		} else {
-			response.sendRedirect(request.getContextPath() + "/pages/adminProduct.jsp?error=true");
+			response.sendRedirect(request.getContextPath() + "/pages/dash.jsp?error=true");
 			System.out.println("servlet error");
 		}
-		doGet(request, response);
+		
 	}
 }

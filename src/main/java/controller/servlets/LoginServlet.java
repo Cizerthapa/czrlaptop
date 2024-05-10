@@ -61,7 +61,7 @@ public class LoginServlet  extends HttpServlet {
 	    System.out.println(psd);
 	   if(psd == 1) {
 		   System.out.println("Successful Login");
-		   int adminChecker = dbController.isAdmin(user_name);
+		   int adminChecker = dbController.isAdminCheck(user_name);
 		   if(adminChecker == 1){
 			   //User is administrator
 			   HttpSession userSession = request.getSession();

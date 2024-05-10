@@ -164,6 +164,7 @@ public class DatabaseController {
 			try (ResultSet rs = statement.executeQuery()) {
 				if (rs.next()) {
 					String usr = rs.getString(1);
+					System.out.println("User exists");
 					return usr;
 				} else {
 					return "no user";
@@ -280,6 +281,7 @@ public class DatabaseController {
 			try (ResultSet rs = statement.executeQuery()) {
 				if (rs.next()) {
 					int count = rs.getInt(1);
+					System.out.println("User exists");
 					return count > 0;
 				}
 			}
@@ -356,7 +358,7 @@ public class DatabaseController {
 		}
 	}
 
-	public int isAdmin(String userName) {
+	public int isAdminCheck(String userName) {
 		try (Connection con = getConnection();
 				PreparedStatement statement = con.prepareStatement("SELECT role FROM CUSTOMER WHERE user_name = ?")) {
 			statement.setString(1, userName);

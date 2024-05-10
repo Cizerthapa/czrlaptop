@@ -4,7 +4,7 @@ import java.io.File;
 
 public class StringUtils {
 
-	// Start SQL Queries
+	// SQL Queries
 
 	public static final String INSERT_CUSTOMER = "INSERT INTO `customer`(`user_name`, `f_name`, `l_name`, `dateofbirth`, `gender`, `email`, `address`, `contactNumber`, `password`, `role`, `image`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -30,10 +30,7 @@ public class StringUtils {
 	
 	public static final String INSERT_LAPTOP = "INSERT INTO `laptop`(`laptopName`, `unitPrice`, `stockLevel`, `laptopDescription`, `processor`, `RAM`, `Storage`, `Screen`, `graphics`,`image`) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
-	// End SQL Queries
-	// Start messages
-	// End messages
-	// Start: Parameter names
+	// Parameter 
 	public static final String USERNAME = "username";
 	public static final String USER_NAME = "user_name";
 	public static final String FIRST_NAME = "firstName";
@@ -46,12 +43,11 @@ public class StringUtils {
 	public static final String ROLE = "role";
 	public static final String PASSWORD = "password";
 	public static final String RETYPE_PASSWORD = "retypePassword";
-	// End: Parameter names
+	// End
 
-	// Start: Validation Messages
+	// Validation Messages
 
 	// Register Page Messages
-	public static final String MESSAGE_SUCCESS_REGISTER = "Successfully Registered!";
 	public static final String MESSAGE_ERROR_REGISTER = "Please correct the form data.";
 	public static final String MESSAGE_ERROR_SERVER = "An unexpected server error occurred.";
 	public static final String MESSAGE_ERROR_USERNAME = "Username is already registered.";
@@ -88,13 +84,10 @@ public class StringUtils {
 	// Start: Normal Text
 	public static final String USER = "user";
 	public static final String SUCCESS = "success";
-	public static final String TRUE = "true";
 	public static final String JSESSIONID = "JSESSIONID";
 	public static final String LOGIN = "Login";
 	public static final String LOGOUT = "Logout";
-	public static final String STUDENT_MODEL = "studentModel";
-	public static final String STUDENT_LISTS = "studentLists";
-	public static final String SLASH = "/";
+	public static final String TRUE = "true";
 	// End: Normal Text
 	// Start: Servlet Route
 	public static final String SERVLET_URL_LOGIN = "/Login";
